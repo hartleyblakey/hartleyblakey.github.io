@@ -1,1 +1,46 @@
-Hello pages
+<!doctype html>
+<html lang="en-US">
+
+
+<head>
+    <link rel="stylesheet" href="styles.css">
+    <meta charset="utf-8" />
+    <title>Personal Website</title>
+
+
+
+</head>
+
+<body>
+    <div id="header">
+        <h1>Personal Website</h1>
+    </div>
+
+    <div id="content" class="container">
+        </div class="project">
+            <canvas id="mainCanvas" width="150" height="150" class="thumbnail"></canvas>
+            <div class="label">Some boxes</div>
+        </div>
+        
+        <script>
+            function draw() {
+                const canvas = document.getElementById("mainCanvas");
+                if (canvas.getContext) {
+                    const ctx = canvas.getContext("2d");
+                    ctx.fillStyle = "rgb(200 0 0)";
+                    ctx.fillRect(10, 10, 50, 50);
+
+                    ctx.fillStyle = "rgb(0 0 200 / 50%)";
+                    ctx.fillRect(30, 30, 50, 50);
+                }
+            }
+            window.addEventListener("load", draw);
+        </script>
+    </div>
+
+    <div id="footer">
+        some footer text
+    </div>
+</body>
+
+</html>
