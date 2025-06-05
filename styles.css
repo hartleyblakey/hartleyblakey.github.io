@@ -1,53 +1,99 @@
+* {
+  box-sizing: inherit;
+}
+
+
 canvas {
     border: 1px solid black;
 }
 
-body {
-    position: static
 
+html {
+  height: 100%;
+  box-sizing: border-box;
+}
+
+body {
+    
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+}
+
+#wrapper {
+    display: grid;
+    background-color: rgb(117, 114, 114);
+    grid-template-rows: auto 1fr auto;
+    height: 100vh;
 }
 
 #header {
-    width: 100%;
     height: 100px;
-      text-align: center;
-  padding: 20px;
+    text-align: center;
+    padding: 20px;
+    background-color: white;
 }
 
 #content {
-    background-color: dimgray;
-}
+    position: relative;
+    height: 100%;
+} 
 
 #footer {
     background-color: rgb(82, 81, 81);
+    height: auto;
+    margin-top: auto;
+    padding: 5px;
+}
+
+
+#mainCanvas {
+    position:absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
 }
 
 .container {
-    display: grid;
-    gap: 0px 50px;
-
-
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    padding: 10px;
 }
 
+.project:hover {
+    border-color:rgb(217, 233, 250);
+}
 
 .project {
-    width: 150px;
-    height: 150px;
-    border: 2px solid;
-    background-color: white;
-    margin: 10px
+    z-index: 1;
+    align-self: start;
+    
+    max-width: 256px;
+    border-radius: 8px;
+    background-color: rgb(35, 36, 37);
+    border: 5px solid;
+    border-color:rgb(35, 36, 37);
+    margin: 2px
 }
 
 .thumbnail {
-    grid-column-start: 1;
-    grid-column-end: 2;
-    width: 150px;
-    height: 150px;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    width: 100%;
+    background-color: rgb(255, 255, 255);
 }
 
 .label {
-    grid-column-start: 2;
-    grid-column-end: 3;
-    top: 0;
-    bottom: 0;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+    text-align: center;
+    padding: 10px;
+    width: 100%;
+    background-color: rgb(217, 235, 223);
+    box-shadow: 9px 9px 25px -10px rgb(120, 150, 120) inset,
+    9px 9px 25px -10px rgb(195, 212, 207) inset; 
+    
 }

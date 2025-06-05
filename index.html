@@ -5,6 +5,9 @@
 <head>
     <link rel="stylesheet" href="styles.css">
     <meta charset="utf-8" />
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <title>Personal Website</title>
 
 
@@ -12,34 +15,32 @@
 </head>
 
 <body>
-    <div id="header">
-        <h1>Personal Website</h1>
-    </div>
-
-    <div id="content" class="container">
-        </div class="project">
-            <canvas id="mainCanvas" width="150" height="150" class="thumbnail"></canvas>
-            <div class="label">Some boxes</div>
+    <div id="wrapper">
+        <div id="header">
+            <h1>Personal Website</h1>
         </div>
-        
-        <script>
-            function draw() {
-                const canvas = document.getElementById("mainCanvas");
-                if (canvas.getContext) {
-                    const ctx = canvas.getContext("2d");
-                    ctx.fillStyle = "rgb(200 0 0)";
-                    ctx.fillRect(10, 10, 50, 50);
+        <div id="content">
+            <canvas id="mainCanvas"></canvas>
+            <div class="container">
+                <div class="project">
+                    <img src="raytracer.jpg" class="thumbnail">
+                    <div class="label">
+                        <h2>Ray Tracer</h2>
+                    </div>
+                </div>
+                <div class="project">
+                    <img src="erosion.jpg" class="thumbnail">
+                    <div class="label">
+                    <h2>Erosion</h2>
+                    </div>
+                </div>
+                <script type="text/javascript" src="background.js"></script>
+            </div>
+        </div>
 
-                    ctx.fillStyle = "rgb(0 0 200 / 50%)";
-                    ctx.fillRect(30, 30, 50, 50);
-                }
-            }
-            window.addEventListener("load", draw);
-        </script>
-    </div>
-
-    <div id="footer">
-        some footer text
+        <div id="footer">
+            some footer text
+        </div>
     </div>
 </body>
 
