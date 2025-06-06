@@ -54,22 +54,22 @@ void main() {
     vec2 uv = p / uRes;
     vec2 tile = uv * uSimRes;
 
-    vec2 dir = -(uMouse.xy / uRes - 0.5) * 3.0;
-    float d = 0.99;
-    for (float t = 0.9; t > 0.0; t -= 0.0999) {
-        float nd = getDepth(uvec2(tile));
-        if (nd < t) {
-            d = t;
-        }
-        p += dir * 4.0;
-        uv = p / uRes;
-        tile = uv * uSimRes;
-    }
+    // vec2 dir = -(uMouse.xy / uRes - 0.5) * 3.0;
+    // float d = 0.99;
+    // for (float t = 0.9; t > 0.0; t -= 0.0999) {
+    //     float nd = getDepth(uvec2(tile));
+    //     if (nd < t) {
+    //         d = t;
+    //     }
+    //     p += dir * 4.0;
+    //     uv = p / uRes;
+    //     tile = uv * uSimRes;
+    // }
     
 
 
 
-
+    float d = ceil(getDepth(uvec2(tile)) * 12.0) / 16.0;
 
 
     uint r = uhash12(uvec2(p) + uvec2(uFrame * 2222u));
