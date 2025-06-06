@@ -71,36 +71,45 @@ void main() {
 
     float d = ceil(getDepth(uvec2(tile)) * 12.0) / 16.0;
 
-
-    uint r = uhash12(uvec2(p) + uvec2(uFrame * 2222u));
-    float v = float(r >> 16) / float(1 << 16);
-    
-    outColor = vec4(v, v, fract(uTime / uTimeStep), 1);
-    vec4 next = texelFetch(uLast, ivec2(tile), 0);
-    vec4 current = texelFetch(uCurrent, ivec2(tile), 0);
-
-    float fac = float(uhash12(uvec2(tile)) >> 16) / float(1u << 16);
-    fac = 1.0;
     vec3 col = vec3(0);
-    vec4 val = mix(current, next, step(fac, uSubTick));
-    v = val.r;
-    float timeAlive = val.z;
-    float timeDead = val.y;
-   // v = 1.0 -  step(v, 0.1);
-    outColor.rgb = vec3(v);
-    outColor.rgb *= mix(vec3(0.6,0.6,0.3), vec3(0,1,0), texelFetch(uCurrent, ivec2(tile), 0).z);
 
-    if (v > 0.5) {
-        // alive
-        col = mix(vec3(0.5, 1.0, 0.5), vec3(0.3, 0.6, 0.3), sqrt(timeAlive));
-    } else {
-        // dead 
-        col = mix(vec3(0.1, 0.2, 0.1), vec3(0.1, 0.1, 0.1), timeDead);
-    }
+//     uint r = uhash12(uvec2(p) + uvec2(uFrame * 2222u));
+//     float v = float(r >> 16) / float(1 << 16);
+    
+//     outColor = vec4(v, v, fract(uTime / uTimeStep), 1);
+//     vec4 next = texelFetch(uLast, ivec2(tile), 0);
+//     vec4 current = texelFetch(uCurrent, ivec2(tile), 0);
 
-    col = (1.0 - d) * (1.0 - d) * vec3(0.3, 0.6, 0.3);
+//     float fac = float(uhash12(uvec2(tile)) >> 16) / float(1u << 16);
+//     fac = 1.0;
+//     vec4 val = mix(current, next, step(fac, uSubTick));
+//     v = val.r;
+//     float timeAlive = val.z;
+//     float timeDead = val.y;
+//    // v = 1.0 -  step(v, 0.1);
+//     outColor.rgb = vec3(v);
+//     outColor.rgb *= mix(vec3(0.6,0.6,0.3), vec3(0,1,0), texelFetch(uCurrent, ivec2(tile), 0).z);
+
+//     if (v > 0.5) {
+//         // alive
+//         col = mix(vec3(0.5, 1.0, 0.5), vec3(0.3, 0.6, 0.3), sqrt(timeAlive));
+//     } else {
+//         // dead 
+//         col = mix(vec3(0.1, 0.2, 0.1), vec3(0.1, 0.1, 0.1), timeDead);
+//     }
+
+    // green
+    vec3 liveCol = vec3(0.5, 1.0, 0.5);
+    vec3 deadCol = vec3(0.3, 0.6, 0.3);
+
+    // fire
+    // vec3 liveCol = vec3(1.0, 1.0, 0.5);
+    // vec3 deadCol = vec3(1.0, 0.4, 0.1);
+
+
+    col = (1.0 - d) * (1.0 - d) * deadCol;
     if (d < 0.01) {
-        col = vec3(0.5, 1.0, 0.5);
+        col = liveCol;
     }
 
     outColor = vec4(col, 1.0);
