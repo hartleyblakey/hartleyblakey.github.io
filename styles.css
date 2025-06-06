@@ -32,7 +32,8 @@ body {
     height: 100px;
     text-align: center;
     padding: 20px;
-    background-color: white;
+    background-color: rgb(24, 25, 43);
+    color: white;
 }
 
 #content {
@@ -63,37 +64,41 @@ body {
     padding: 10px;
 }
 
-.project:hover {
-    border-color:rgb(217, 233, 250);
-}
 
 .project {
+    display: grid;
     z-index: 1;
     align-self: start;
-    
     max-width: 256px;
+
     border-radius: 8px;
-    background-color: rgb(35, 36, 37);
-    border: 5px solid;
-    border-color:rgb(35, 36, 37);
+    padding: 5px;
+    backdrop-filter: blur(24px);
+    box-shadow: 0px 0px 25px -5px rgb(0, 0, 0);
     margin: 2px
 }
 
+.project:hover {
+    border: 5px solid rgb(76, 250, 134);
+    padding: 0px;
+    box-shadow: 0px 0px 25px -5px rgb(159, 255, 183);
+}
+
 .thumbnail {
-    border-top-left-radius: 4px;
-    border-top-right-radius: 4px;
+    /* border-top-left-radius: 4px;
+    border-top-right-radius: 4px; */
     width: 100%;
     background-color: rgb(255, 255, 255);
 }
 
 .label {
-    border-bottom-left-radius: 4px;
-    border-bottom-right-radius: 4px;
+    color:  rgb(231, 241, 227);
+    /* border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px; */
     text-align: center;
-    padding: 10px;
     width: 100%;
-    background-color: rgb(217, 235, 223);
+    /* background-color: rgba(217, 235, 223, 0);
     box-shadow: 9px 9px 25px -10px rgb(120, 150, 120) inset,
-    9px 9px 25px -10px rgb(195, 212, 207) inset; 
+    9px 9px 25px -10px rgb(195, 212, 207) inset;  */
     
 }
