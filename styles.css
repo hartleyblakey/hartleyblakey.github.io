@@ -59,9 +59,12 @@ body {
 .container {
     display: flex;
     flex-wrap: wrap;
+    backdrop-filter: blur(24px);
+    background-color: rgba(255, 255, 255, 0.13);
+    box-shadow: 0px 0px 25px -5px rgb(0, 0, 0);
     justify-content: center;
-    gap: 10px;
-    padding: 10px;
+    gap: 40px;
+    padding: 40px;
 }
 
 
@@ -72,6 +75,7 @@ body {
     align-self: start;
     max-width: 256px;
 
+    background-color: rgba(255, 255, 255, 0.13);
     border-radius: 8px;
     padding: 5px;
     backdrop-filter: blur(24px);
@@ -81,6 +85,7 @@ body {
 
 .project:hover {
     border: 5px solid rgb(76, 250, 134);
+    background-color: rgba(177, 250, 186, 0.13);
     padding: 0px;
     box-shadow: 0px 0px 25px -5px rgb(159, 255, 183);
 }
