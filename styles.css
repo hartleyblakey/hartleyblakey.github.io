@@ -21,6 +21,10 @@ body {
     padding: 0;
 }
 
+img {
+  border-radius: 3px;
+}
+
 #wrapper {
     display: grid;
     background-color: rgb(117, 114, 114);
