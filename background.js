@@ -43,7 +43,7 @@ float getDepth(uvec2 tile) {
         return 0.0;
     } else {
         // dead 
-        return c.y;
+        return c.y + 0.001;
     }
 }
 
@@ -67,9 +67,6 @@ void main() {
     // }
     
 
-
-
-    float d = ceil(getDepth(uvec2(tile)) * 12.0) / 16.0;
 
     vec3 col = vec3(0);
 
@@ -97,20 +94,9 @@ void main() {
 //         // dead 
 //         col = mix(vec3(0.1, 0.2, 0.1), vec3(0.1, 0.1, 0.1), timeDead);
 //     }
+    
 
-    // green
-    vec3 liveCol = vec3(0.5, 1.0, 0.5);
-    vec3 deadCol = vec3(0.3, 0.6, 0.3);
-
-    // fire
-    // vec3 liveCol = vec3(1.0, 1.0, 0.5);
-    // vec3 deadCol = vec3(1.0, 0.4, 0.1);
-
-
-    col = (1.0 - d) * (1.0 - d) * deadCol;
-    if (d < 0.01) {
-        col = liveCol;
-    }
+    $VISUALIZATION$
 
     outColor = vec4(col, 1.0);
 }
@@ -218,6 +204,23 @@ void main() {
 `;
 
 
+const defaultVisualization = `
+    // returns 0.0 for alive tiles, approaching 1 the longer the tile has been dead
+    float d = getDepth(uvec2(tile));
+    d = ceil(d * 12.0 - 0.02) / 16.0;
+
+    // green
+    vec3 liveCol = vec3(0.5, 1.0, 0.5);
+    vec3 deadCol = vec3(0.3, 0.6, 0.3);
+
+    col = (1.0 - d) * (1.0 - d) * deadCol;
+    
+    if (d < 0.01) {
+        col = liveCol;
+    }
+`
+
+
 function makeBasicTexture(gl, format, type, width, height) {
     var tex = gl.createTexture();
     gl.bindTexture(gl.TEXTURE_2D, tex);
@@ -237,6 +240,8 @@ function makeBasicTexture(gl, format, type, width, height) {
 
     return tex;
 }
+
+var visualization = defaultVisualization;
 
 var gl;
 var programVis;
@@ -333,6 +338,17 @@ function createProgram(vertexShader, fragmentShader) {
     gl.deleteProgram(program);
 }
 
+function updatePrograms() {
+    var vertexShader = createShader(gl.VERTEX_SHADER, vertexShaderSource);
+    var fragmentShader = createShader(gl.FRAGMENT_SHADER, fragmentShaderSource.replace("$VISUALIZATION$", visualization));
+    programVis = createProgram(vertexShader, fragmentShader);
+
+
+    var vertexShader = createShader(gl.VERTEX_SHADER, vertSourceSim);
+    var fragmentShader = createShader(gl.FRAGMENT_SHADER, fragSourceSim);
+    programSim = createProgram(vertexShader, fragmentShader);
+}
+
 
 function updateUniforms(program) {
     var frameLoc = gl.getUniformLocation(program, "uFrame");
@@ -425,14 +441,7 @@ function init() {
         }
         onResize();
 
-        var vertexShader = createShader(gl.VERTEX_SHADER, vertexShaderSource);
-        var fragmentShader = createShader(gl.FRAGMENT_SHADER, fragmentShaderSource);
-        programVis = createProgram(vertexShader, fragmentShader);
-
-
-        var vertexShader = createShader(gl.VERTEX_SHADER, vertSourceSim);
-        var fragmentShader = createShader(gl.FRAGMENT_SHADER, fragSourceSim);
-        programSim = createProgram(vertexShader, fragmentShader);
+        updatePrograms();
 
         vao = gl.createVertexArray();
         gl.bindVertexArray(vao);

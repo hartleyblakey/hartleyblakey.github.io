@@ -5,6 +5,7 @@
 
 canvas {
     border: 1px solid black;
+    background-color: rgb(5, 10, 5);
 }
 
 
@@ -19,17 +20,25 @@ body {
     flex-direction: column;
     margin: 0;
     padding: 0;
+    background-color: rgb(39, 53, 40);
 }
 
 img {
   border-radius: 3px;
 }
 
+textarea {
+    color: white;
+    background-color: black;
+
+}
+
 #wrapper {
     display: grid;
-    background-color: rgb(117, 114, 114);
+
     grid-template-rows: auto 1fr auto;
     height: 100vh;
+    z-index: 1;
 }
 
 #header {
@@ -41,7 +50,7 @@ img {
 }
 
 #content {
-    position: relative;
+    /* position: relative; */
     height: 100%;
 } 
 
@@ -54,9 +63,10 @@ img {
 
 
 #mainCanvas {
-    position:absolute;
+    position: absolute;
     width: 100%;
     height: 100%;
+    
     z-index: 0;
 }
 
@@ -123,4 +133,20 @@ img {
     box-shadow: 9px 9px 25px -10px rgb(120, 150, 120) inset,
     9px 9px 25px -10px rgb(195, 212, 207) inset;  */
     
+}
+
+.textbox {
+    background-color: rgba(255, 255, 255, 0.062);
+    backdrop-filter: blur(24px);
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    width: fit-content;
+    margin: 10px;
+    border-radius: 8px;
+    border: 4px solid gray;
+}
+
+.textbox > button {
+    color: rgb(255, 255, 255);
+    background-color: rgba(0, 0, 0, 0.096);
 }
