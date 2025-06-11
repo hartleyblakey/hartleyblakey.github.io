@@ -1,7 +1,7 @@
 async function generateVisualization() {
 
     let userPrompt = document.getElementById('promptText').value;
-
+    console.log("userPrompt =", userPrompt);
     let response = await fetch("https://cgcs.asherville.dev", {
         method: "POST",
         body: JSON.stringify({
