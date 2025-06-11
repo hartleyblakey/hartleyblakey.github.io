@@ -47,6 +47,8 @@ float getDepth(uvec2 tile) {
     }
 }
 
+$VISUALIZATION$
+
 void main() {
     vec2 p = gl_FragCoord.xy;
     p *= 0.9;
@@ -95,8 +97,7 @@ void main() {
 //         col = mix(vec3(0.1, 0.2, 0.1), vec3(0.1, 0.1, 0.1), timeDead);
 //     }
     
-
-    $VISUALIZATION$
+    col = visualize(tile);
 
     outColor = vec4(col, 1.0);
 }
@@ -205,6 +206,8 @@ void main() {
 
 
 const defaultVisualization = `
+vec3 visualize(vec2 tile) {
+
     // returns 0.0 for alive tiles, approaching 1 the longer the tile has been dead
     float d = getDepth(uvec2(tile));
     d = ceil(d * 12.0 - 0.02) / 16.0;
@@ -213,11 +216,15 @@ const defaultVisualization = `
     vec3 liveCol = vec3(0.5, 1.0, 0.5);
     vec3 deadCol = vec3(0.3, 0.6, 0.3);
 
-    col = (1.0 - d) * (1.0 - d) * deadCol;
+    vec3 col = (1.0 - d) * (1.0 - d) * deadCol;
     
     if (d < 0.01) {
         col = liveCol;
     }
+
+    return col;
+        
+}
 `
 
 
