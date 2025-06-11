@@ -1,4 +1,7 @@
-async function generateVisualization(userPrompt) {
+async function generateVisualization() {
+
+    let userPrompt = document.getElementById('promptText').value;
+
     let response = await fetch("https://cgcs.asherville.dev", {
         method: "POST",
         body: JSON.stringify({
@@ -29,8 +32,8 @@ async function generateVisualization(userPrompt) {
 
 function onLoad() {
     var button = document.getElementById('generateButton');
-    let promptText = document.getElementById('promptText').value;
+    
     if (!button) return;
-    button.addEventListener("click", () => generateVisualization(promptText));
+    button.addEventListener("click", generateVisualization);
 }
 window.addEventListener("load", onLoad);
