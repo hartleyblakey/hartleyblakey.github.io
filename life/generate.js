@@ -24,7 +24,9 @@ async function generateVisualization() {
         console.error("Server error: returned empty string");
         // TODO: display some error
     } else {
-        visualization = responseText;
+        visualization = responseText
+            .replace(/^```glsl/, '')
+            .replace(/```$/, '');
     }
     
     updatePrograms();
