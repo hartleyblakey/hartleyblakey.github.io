@@ -6,7 +6,7 @@ async function generateVisualization(userPrompt) {
             prompt: userPrompt
         }),
         headers: {
-            "Content-type": "application/json; charset=UTF-8"
+            "Content-type": "application/json"
         }
     });
 
