@@ -28,6 +28,9 @@ async function generateVisualization() {
             .replace(/^```glsl/, '')
             .replace(/```$/, '');
     }
+
+    let visText = document.getElementById("currentVisualization");
+    visText.textContent = visualization;
     
     updatePrograms();
 }

@@ -29,7 +29,7 @@ img {
 
 textarea {
     color: white;
-    background-color: black;
+    background-color: rgba(0, 0, 0, 0.199);
 
 }
 
@@ -136,6 +136,7 @@ textarea {
 }
 
 .textbox {
+    color: rgb(255, 255, 255);
     background-color: rgba(255, 255, 255, 0.062);
     backdrop-filter: blur(24px);
     display: grid;
@@ -147,6 +148,6 @@ textarea {
 }
 
 .textbox > button {
-    color: rgb(255, 255, 255);
+    
     background-color: rgba(0, 0, 0, 0.096);
 }

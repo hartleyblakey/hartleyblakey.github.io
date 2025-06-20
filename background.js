@@ -47,6 +47,23 @@ float getDepth(uvec2 tile) {
     }
 }
 
+float getDepthLast(uvec2 tile) {
+    vec4 c = texelFetch(uCurrent, ivec2(tile), 0);
+    if (c.r > 0.5) {
+        // alive
+        return 0.0;
+    } else {
+        // dead 
+        return c.y + 0.001;
+    }
+}
+
+vec2 pixelToTile(vec2 p) {
+    p *= 0.9;
+    p += uRes * 0.05;
+    return p / uRes * uSimRes;
+}
+
 $VISUALIZATION$
 
 void main() {
@@ -210,17 +227,22 @@ vec3 visualize(vec2 tile) {
 
     // returns 0.0 for alive tiles, approaching 1 the longer the tile has been dead
     float d = getDepth(uvec2(tile));
-    d = ceil(d * 12.0 - 0.02) / 16.0;
 
     // green
-    vec3 liveCol = vec3(0.5, 1.0, 0.5);
-    vec3 deadCol = vec3(0.3, 0.6, 0.3);
+    vec3 liveCol = vec3(0.15, 0.15, 0.15);
+    vec3 deadCol = vec3(0.15, 0.15, 0.15);
 
-    vec3 col = (1.0 - d) * (1.0 - d) * deadCol;
-    
-    if (d < 0.01) {
-        col = liveCol;
+    if (distance(pixelToTile(uMouse.xy), tile) < 15.0) {
+        deadCol = vec3(0.95, 0.45, 0.15);
     }
+
+    float f = (1.0 - d) * (1.0 - d);
+
+    vec3 col = mix(vec3(0.11), deadCol, f);
+    
+
+
+
 
     return col;
         
@@ -346,6 +368,11 @@ function createProgram(vertexShader, fragmentShader) {
 }
 
 function updatePrograms() {
+
+    let visText = document.getElementById("currentVisualization");
+
+    if (visText) visText.textContent = visualization;
+
     var vertexShader = createShader(gl.VERTEX_SHADER, vertexShaderSource);
     var fragmentShader = createShader(gl.FRAGMENT_SHADER, fragmentShaderSource.replace("$VISUALIZATION$", visualization));
     programVis = createProgram(vertexShader, fragmentShader);
