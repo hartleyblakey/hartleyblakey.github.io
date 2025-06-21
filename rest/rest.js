@@ -81,6 +81,8 @@ function onLoad() {
     
     if (!button) return;
     button.addEventListener("click", newEntry);
+
+    updateEntries();
     
 }
 window.addEventListener("load", onLoad);
