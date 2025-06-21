@@ -10,7 +10,8 @@ async function newEntry() {
         }
     });
 
-    let uuid = await response.text();
+    let uuid = JSON.parse(await response.text()); // parse into JS string
+    
     let textbox = document.getElementById('createText');
 
     await fetch("https://diorama.asherville.dev/api/dioramas/" + uuid, {
