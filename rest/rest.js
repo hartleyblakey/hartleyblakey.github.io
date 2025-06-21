@@ -44,7 +44,6 @@ function addCard(uuid, properties) {
 async function updateEntries() {
     let response = await fetch("https://diorama.asherville.dev/api/dioramas", {
         method: "GET",
-        body: JSON.stringify({}),
         headers: {
             "Content-type": "application/json"
         }
