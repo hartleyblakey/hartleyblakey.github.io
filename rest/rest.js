@@ -10,6 +10,19 @@ async function newEntry() {
         }
     });
 
+    let uuid = await response.text();
+    let textbox = document.getElementById('createText');
+
+    await fetch("https://diorama.asherville.dev/api/dioramas/" + uuid, {
+        method: "POST",
+        body: JSON.stringify({diorama: {text: textbox.textContent}}),
+        headers: {
+            "Content-type": "application/json"
+        }
+    });
+
+    textbox.textContent = "";
+
     updateEntries();
 }
 
