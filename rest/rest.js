@@ -49,7 +49,7 @@ async function updateEntries() {
         }
     });
 
-    entries = JSON.parse(await response.json());
+    entries = await response.json();
     
     document.querySelectorAll('.generated').forEach(element => {
         element.remove();
