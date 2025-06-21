@@ -15,13 +15,13 @@ async function newEntry() {
 
     await fetch("https://diorama.asherville.dev/api/dioramas/" + uuid, {
         method: "POST",
-        body: JSON.stringify({diorama: {text: textbox.textContent}}),
+        body: JSON.stringify({diorama: {text: textbox.value}}),
         headers: {
             "Content-type": "application/json"
         }
     });
 
-    textbox.textContent = "";
+    textbox.value = "";
 
     updateEntries();
 }
