@@ -1,6 +1,7 @@
 var entries;
 
 async function newEntry() {
+    console.log("Attempted to create new entry");
     let response = await fetch("https://diorama.asherville.dev/api/dioramas", {
         method: "POST",
         body: JSON.stringify({}),
@@ -63,9 +64,11 @@ async function updateEntries() {
 
 
 function onLoad() {
+    console.log("REST script Loaded");
     var button = document.getElementById('createButton');
     
     if (!button) return;
     button.addEventListener("click", newEntry);
+    
 }
 window.addEventListener("load", onLoad);
