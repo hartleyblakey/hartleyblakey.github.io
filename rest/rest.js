@@ -11,7 +11,7 @@ async function newEntry() {
     });
 
     let uuid = JSON.parse(await response.text()); // parse into JS string
-    
+
     let textbox = document.getElementById('createText');
 
     await fetch("https://diorama.asherville.dev/api/dioramas/" + uuid, {
@@ -41,6 +41,8 @@ function addCard(uuid, properties) {
 
     const updateButtonElement = document.createElement('button');
     updateButtonElement.textContent = "Save";
+    updateButtonElement.classList.add('saveButton');
+    updateButtonElement.id = "save" + uuid;
 
     cardDiv.appendChild(labelElement);
     cardDiv.appendChild(editTextElement);
@@ -74,6 +76,27 @@ async function updateEntries() {
     }
 }
 
+async function saveEntry(event) {
+    if (!event.target.classList.contains('saveButton')) {
+        return;
+    }
+    let uuid = event.target.id.replace("save", "");
+    let project = event.target.closest('.project');
+    let textbox = project.querySelector('textarea');
+    if (textbox && textbox.value) {
+        console.log("Writing to " + uuid + "a value of \"" + textbox.value + "\"");
+        await fetch("https://diorama.asherville.dev/api/dioramas/" + uuid, {
+            method: "POST",
+            body: JSON.stringify({diorama: {text: textbox.value}}),
+            headers: {
+                "Content-type": "application/json"
+            }
+        });
+    } else {
+        console.error("Textbox not found or has no value");
+    }
+
+}
 
 
 function onLoad() {
@@ -82,6 +105,9 @@ function onLoad() {
     
     if (!button) return;
     button.addEventListener("click", newEntry);
+
+    var container = document.getElementById('mainContainer');
+    container.addEventListener("click", saveEntry)
 
     updateEntries();
     
