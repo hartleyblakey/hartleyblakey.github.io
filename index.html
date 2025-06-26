@@ -21,39 +21,78 @@
     <canvas id="mainCanvas"></canvas>
     <div id="wrapper">
         <div id="header">
-            <h1>Projects</h1>
+            <button class="b_nav"> Resume </button>
+            <button class="b_nav"> Linkedin </button>
+            <button class="b_nav"> Github </button>
         </div>
         <div id="content">
-            
+
             <div class="container">
+                <div style="max-width: 512px"> 
+                    <h1> Hartley Blakey </h1>
+                    <p>
+                        Computer Science student at Sonoma State University with a passion for computer graphics and high performance applications
+                    </p>
+                </div>
+
+                <h2> Projects </h2>
                 <div class="project">
                     
                     <img src="raytracer.jpg" class="thumbnail">
                     <div class="label">
-                        <h2>Ray Tracer</h2>
+                        <h2>Ray Tracer in Rust & WebGPU</h2>
+
+                        <p>
+                            A simple raytracer written in Rust and WGPU. Models are loaded from the GLTF file format and processed into
+                            a BVH in Rust, then passed to the GPU for rendering in a compute shader.
+                        </p>
+
+                        <button class="b_demo">Live Demo</button>
+                        <button class="b_github">View on GitHub</button>
+                        
                     </div>
-                    <a href="https://www.github.com/hartleyblakey/raytracer"><span class="block-link"></span> </a>
+
                 </div>
                 <div class="project">
                     <img src="erosion.jpg" class="thumbnail">
                     <div class="label">
-                        <h2>Erosion</h2>
+                        <h2>Hydraulic Erosion in C++ & OpenGL</h2>
+
+                        <p>Basic grid-based erosion simulation</p>
+                        <button class="b_github">View on GitHub</button>
                     </div>
-                    <a href="https://github.com/hartleyblakey/layered-terrain"><span class="block-link"></span> </a>
+
                 </div>
                 <div class="project">
                     <img src="life.png" class="thumbnail">
                     <div class="label">
-                        <h2>Life</h2>
+                        <h2>OpenAI API Shader Code Generation</h2>
+
+                        <p>Conway's Game of Life with visualization shaders by ChatGPT</p>
+
+                        <button class="b_demo">Live Demo</button>
+                        <button class="b_github">View on GitHub</button>
+                        
                     </div>
-                    <a href="life/life.html"><span class="block-link"></span> </a>
                 </div>
                 <div class="project">
                     <img src="REST.png" class="thumbnail">
                     <div class="label">
                         <h2>Minimal REST API</h2>
+
+                        <p>Create and edit strings on the server</p>
+
+                        <button class="b_demo">Live Demo</button>
+                        <button class="b_github">View on GitHub</button>
+                        
                     </div>
-                    <a href="rest/rest.html"><span class="block-link"></span> </a>
+                    
+
+                </div>
+                <div> 
+                    <h1> Skills </h1>
+                    <p> Languages: C++, Rust, GLSL, WGSL </p>
+                    <p> Developer Tools: Git, VSCode, CLion, Rider, Perforce </p>
                 </div>
             </div>
             
