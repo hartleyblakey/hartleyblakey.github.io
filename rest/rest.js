@@ -82,8 +82,8 @@ async function saveEntry(event) {
         return;
     }
     let uuid = event.target.id.replace("save", "");
-    let project = event.target.closest('.project');
-    let textbox = project.querySelector('textarea');
+    let entry = event.target.closest('.entry');
+    let textbox = entry.querySelector('textarea');
     if (textbox && textbox.value) {
         console.log("Writing to " + uuid + "a value of \"" + textbox.value + "\"");
         await fetch("https://diorama.asherville.dev/api/dioramas/" + uuid, {
