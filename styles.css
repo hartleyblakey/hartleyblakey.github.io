@@ -1,7 +1,6 @@
 * {
   box-sizing: inherit;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    font-weight: 400;
 }
 
 
@@ -19,6 +18,7 @@ html {
   height: 100%;
   box-sizing: border-box;
   color:  rgb(231, 241, 227);
+  
 }
 
 body {
@@ -27,7 +27,8 @@ body {
     flex-direction: column;
     margin: 0;
     padding: 0;
-    background-color: rgb(39, 53, 40);
+    background-color: rgb(17, 22, 27);
+    
 }
 
 img {
@@ -67,7 +68,7 @@ h2 {
     height: 80px;
     text-align: right;
     padding: 20px;
-    background-color: rgba(66, 150, 111, 0.178);
+    background-color: rgba(66, 150, 111, 0);
     color: white;
 }
 
@@ -82,7 +83,7 @@ h2 {
 #footer {
     grid-column-start: 1;
     grid-column-end: 4;
-    background-color: rgb(82, 81, 81);
+    background-color: rgba(29, 29, 29, 0);
     height: auto;
     margin-top: auto;
     padding: 5px;
@@ -161,7 +162,7 @@ h2 {
     /* border-top-left-radius: 4px;
     border-top-right-radius: 4px; */
     border-radius: 16px;
-    max-width: 512px;
+    max-width: 396px;
     aspect-ratio: 16/9;
     
     object-fit: cover;
@@ -170,22 +171,13 @@ h2 {
 }
 
 .label {
-    padding-left: 20px;
+    padding-left: 40px;
     padding-bottom: 20px;
     max-width: 512px;
 
+
     display: grid;
-    grid-template-rows: 1fr, 23fr, 1fr;
-
-    /* border-bottom-left-radius: 4px;
-    border-bottom-right-radius: 4px; 
-
-    
-    box-shadow: 9px 9px 25px -10px rgb(120, 150, 120) inset,
-    9px 9px 25px -10px rgb(195, 212, 207) inset;  
-    */
-    /* background-color: rgba(217, 235, 223, 0.1); */
-    
+    grid-template-rows: auto 1fr auto;
 }
 
 .textbox {
@@ -207,17 +199,30 @@ h2 {
 
 button {
     background-color: transparent;
-    padding: 8px;
+    padding: 8px 8px 8px 8px;
     margin-right: 8px;
     margin-top: 8px;
+    margin-bottom: 8px;
+
     height: 32px;
+    line-height: 0px;
     border-radius: 16px;
     border: solid 1px white;
     color: white;
 }
 
-p {
-    /* background-color: aqua; */
+button:hover {
+    cursor: pointer;
+}
+
+.b_github:hover {
+    box-shadow: 0px 0px 15px 0px rgba(255, 255, 255, 0.288);
+    border: solid 2px white;
+}
+
+.b_demo:hover {
+    box-shadow: 0px 0px 25px 0px rgba(111, 255, 166, 0.281), 0px 0px 15px 0px rgb(77, 177, 115) inset;
+    border: solid 2px rgb(255, 255, 255);
 }
 
 .b_nav {
@@ -225,18 +230,17 @@ p {
     border: none;
     color: white;
 }
-.b_nav:hover {
-    text-decoration: greenyellow underline;
+
+.b_resume {
+    text-decoration: underline rgb(77, 177, 115);
     text-underline-offset: 5px;
 }
 
 .b_github {
-
     width: 128px;
 }
 
 .b_demo {
-
     width: 128px;
     background-color: rgb(77, 177, 115);
     border: 0px transparent;
