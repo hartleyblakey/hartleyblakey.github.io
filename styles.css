@@ -37,13 +37,13 @@ img {
 
 textarea {
     color: white;
-    background-color: rgba(0, 0, 0, 0.199);
+    background-color: rgba(0, 0, 0, 0.2);
 
 }
 
 h1 {
     margin-bottom: 0px;
-    font-size: 24pt;
+    font-size: 3em;
     
 }
 
@@ -83,10 +83,9 @@ h2 {
 #footer {
     grid-column-start: 1;
     grid-column-end: 4;
-    background-color: rgba(29, 29, 29, 0);
+    background-color: transparent;
     height: auto;
     margin-top: auto;
-    padding: 5px;
 }
 
 
@@ -130,17 +129,19 @@ h2 {
     z-index: 1;
     align-self: start;
 
-    /* background-color: rgba(255, 255, 255, 0.13);
-    border-radius: 8px;
-    backdrop-filter: blur(24px); 
-    box-shadow: 0px 0px 25px -5px rgb(0, 0, 0); */
-
-    /* background-color: aqua; */
-
     padding-top: 4px;
     padding-left: 8px;
     margin-bottom: 32px;
+
+    /* animation */
+    transition: all 0.2s ease-in-out;
 }
+
+/* .project:hover {
+    transform: scale(1.02);
+    background-color: rgba(0, 0, 0, 0.05);
+    box-shadow: 0px 0px 25px 25px rgba(0, 0, 0, 0.05);
+} */
 
 /* .project:hover {
     border: 5px solid rgb(76, 250, 134);
@@ -192,26 +193,30 @@ h2 {
     border: 4px solid gray;
 }
 
-.textbox > button {
+.textbox > .b_all {
     
     background-color: rgba(0, 0, 0, 0.096);
 }
 
-button {
+.b_all {
     background-color: transparent;
-    padding: 8px 8px 8px 8px;
+    padding: 8px;
     margin-right: 8px;
     margin-top: 8px;
     margin-bottom: 8px;
 
+    text-decoration: none;
+
     height: 32px;
     line-height: 0px;
     border-radius: 16px;
+
     border: solid 1px white;
     color: white;
 }
 
-button:hover {
+.b_all:hover {
+    padding: 7px;
     cursor: pointer;
 }
 
@@ -222,13 +227,17 @@ button:hover {
 
 .b_demo:hover {
     box-shadow: 0px 0px 25px 0px rgba(111, 255, 166, 0.281), 0px 0px 15px 0px rgb(77, 177, 115) inset;
-    border: solid 2px rgb(255, 255, 255);
+    border: solid 1px rgb(255, 255, 255);
 }
 
 .b_nav {
     width: 64px;
     border: none;
     color: white;
+}
+
+.b_nav:hover {
+    padding: 8px;
 }
 
 .b_resume {
@@ -247,3 +256,35 @@ button:hover {
     color: white;
     
 }
+
+.footerimg {
+    position:relative;
+    width: 100%;
+    object-fit: cover;
+    image-rendering:pixelated;
+    filter:opacity(0.7);
+}
+
+.footertext {
+    color: #777;
+    font-size: 0.9em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    margin-top: 25px;
+}
+
+.footertext > a {
+    font-size: 1em;
+    color: #aaa;
+    text-decoration: none;
+    margin-top: 5px;
+}
+
+.footertext > a:hover {
+    color: #ddd;
+    text-decoration: none;
+    
+}
+

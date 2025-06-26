@@ -21,9 +21,10 @@
     <!-- <canvas id="mainCanvas"></canvas> -->
     <div id="wrapper">
         <div id="header">
-            <button class="b_nav b_resume"> Resume </button>
-            <button class="b_nav" type="button" onclick="window.open('https://linkedin.com/in/hartleyblakey')"> Linkedin </button>
-            <button class="b_nav" type="button" onclick="window.open('https://github.com/hartleyblakey')"> Github </button>
+            <a class="b_all b_nav b_resume" href=".">Projects</a>
+            <a class="b_all b_nav" href="https://linkedin.com/in/hartleyblakey">Linkedin</a>
+            <a class="b_all b_nav" href="mailto:hartleyblakey@gmail.com"> Email </a>
+            <a class="b_all b_nav" href="https://github.com/hartleyblakey"> Github </a>
         </div>
         <div id="content">
 
@@ -44,12 +45,12 @@
                         <h2>Raytracer in Rust & WebGPU</h2>
 
                         <p>
-                            A simple raytracer written in Rust and WGPU. Models are loaded from the GLTF file format and processed into
-                            a BVH in Rust, then passed to the GPU for rendering in a compute shader.
+                            A simple raytracer written in Rust with WGPU. Models are loaded from the GLTF file format and processed into
+                            a BVH in Rust, then passed to the GPU for rendering in a compute shader. Only supports static, opaque geometry.
                         </p>
-                        <div class="projectButtons">
-                            <button class="b_demo" type="button" onclick="window.open('https://blue.cs.sonoma.edu/~hblakey/raytracer/src/index.html')">Live Demo</button>
-                            <button class="b_github" type="button" onclick="window.open('https://github.com/hartleyblakey/raytracer')">View on GitHub</button>
+                        <div class="projectas">
+                            <a class="b_all b_demo" href="https://blue.cs.sonoma.edu/~hblakey/raytracer/src/index.html">Live Demo</a>
+                            <a class="b_all b_github" href="https://github.com/hartleyblakey/raytracer">View on GitHub</a>
                         </div>
  
 
@@ -63,9 +64,13 @@
                     <div class="label">
                         <h2>Hydraulic Erosion in C++ & OpenGL</h2>
 
-                        <p>Basic grid-based erosion simulation</p>
-                        <div class="projectButtons">
-                            <button class="b_github" type="button" onclick="window.open('https://github.com/hartleyblakey/layered-terrain')">View on GitHub</button>
+                        <p>
+                            Basic grid-based erosion simulation. Terrain is composed of 4 layers: Bedrock, Large, Medium, and Small.
+                            Smaller layers are strictly above larger layers, and erode first. Layers erode into the next layer 
+                            down.
+                        </p>
+                        <div class="projectas">
+                            <a class="b_all b_github" href="https://github.com/hartleyblakey/layered-terrain">View on GitHub</a>
                         </div>
                         
                     </div>
@@ -76,10 +81,13 @@
                     <div class="label">
                         <h2>OpenAI API Shader Code Generation</h2>
 
-                        <p>Conway's Game of Life with visualization shaders by ChatGPT</p>
-                        <div class="projectButtons">
-                            <button class="b_demo" type="button" onclick="window.open('./life/life.html')">Live Demo</button>
-                            <!-- <button class="b_github" type="button" onclick="window.open('https://github.com/hartleyblakey/chatgptcompletionserver')">View on GitHub</button> -->
+                        <p>
+                            Conway's Game of Life with visualization shaders by ChatGPT. Prompts are first sent to a Raspberry Pi which adds
+                            the API key and system prompt and forwards it to OpenAI's API. <br> Currently non-functional.
+                        </p>
+                        <div class="projectas">
+                            <a class="b_all b_demo" href="./life/life.html">Live Demo</a>
+                            <!-- <a class="b_all b_github" href="https://github.com/hartleyblakey/chatgptcompletionserver">View on GitHub</a> -->
                         </div>
 
                         
@@ -90,10 +98,14 @@
                     <div class="label">
                         <h2>Minimal REST API</h2>
 
-                        <p>Create and edit strings on the server</p>
-                        <div class="projectButtons">
-                            <button class="b_demo" type="button" onclick="window.open('./rest/rest.html')">Live Demo</button>
-                            <!-- <button class="b_github" type="button" onclick="window.open('https://github.com/hartleyblakey/million')">View on GitHub</button> -->
+                        <p>
+                            Create and edit strings on the server.
+                            <br><br>
+                            Does not support deletion yet.
+                        </p>
+                        <div class="projectas">
+                            <a class="b_all b_demo" href="./rest/rest.html">Live Demo</a>
+                            <!-- <a class="b_all b_github" href="https://github.com/hartleyblakey/million">View on GitHub</a> -->
                         </div>
 
                         
@@ -105,13 +117,21 @@
                     <h2> Skills </h2>
                     <p> Languages: C++, Rust, GLSL, WGSL </p>
                     <p> Developer Tools: Git, VSCode, CLion, Rider, Perforce </p>
+                    <p> Libraries/APIs: WebGPU, OpenGL </p>
                 </div>
             </div>
             
         </div>
-
+        
         <div id="footer">
-            
+            <div class="footertext">
+                <a href="linkedin.com/in/hartleyblakey">LinkedIn</a>
+                <a href="github.com/hartleyblakey">GitHub</a>
+                <a href="mailto:hartleyblakey@gmail.com">hartleyblakey@gmail.com</a>
+                <p>@ 2025 Hartley Blakey</p>
+            </div>
+            <img src="lifestarstransparent.png" class="footerimg">
+
         </div>
     </div>
 </body>
