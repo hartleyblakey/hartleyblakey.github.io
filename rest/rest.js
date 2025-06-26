@@ -31,8 +31,8 @@ async function newEntry() {
 function addCard(uuid, properties) {
     const cardDiv = document.createElement('div');
     cardDiv.classList.add('generated');
-    cardDiv.classList.add('project');
-    const labelElement = document.createElement('p');
+    cardDiv.classList.add('entry');
+    const labelElement = document.createElement('div');
     labelElement.classList.add('label');
     labelElement.textContent = uuid;
 
@@ -42,6 +42,7 @@ function addCard(uuid, properties) {
     const updateButtonElement = document.createElement('button');
     updateButtonElement.textContent = "Save";
     updateButtonElement.classList.add('saveButton');
+    updateButtonElement.classList.add('b_all');
     updateButtonElement.id = "save" + uuid;
 
     cardDiv.appendChild(labelElement);

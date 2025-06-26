@@ -5,7 +5,7 @@
 <head>
     <link rel="stylesheet" href="/styles.css">
     <link rel="stylesheet" href="rest.css">
-    <script type="text/javascript" src="/background.js" defer></script> 
+
     <script type="text/javascript" src="rest.js" defer></script> 
 
     <meta charset="utf-8" />
@@ -19,24 +19,34 @@
 </head>
 
 <body>
-    <canvas id="mainCanvas"></canvas>
     <div id="wrapper">
         <div id="header">
-            <h1>Minimal REST API</h1A>
+            <a class="b_all b_nav b_resume" href="/">Projects</a>
+            <a class="b_all b_nav" href="https://linkedin.com/in/hartleyblakey">Linkedin</a>
+            <a class="b_all b_nav" href="mailto:hartleyblakey@gmail.com"> Email </a>
+            <a class="b_all b_nav" href="https://github.com/hartleyblakey"> Github </a>
         </div>
         <div id="content">
+            <h1>Minimal REST API</h1>
             <div id="mainContainer" class="container">
-                <div class="project">
-                    <p class="label">New Entry </p>
+                <div class="entry">
+                    <div class="label"><h2>New Entry</h2></div>
                     <textarea id="createText"> Hello, World!</textarea>
-                    <button id="createButton"> Create</button>
+                    <button id="createButton" class="b_all"> Create</button>
                 </div>
             </div>
         </div>
-
         <div id="footer">
-            some more footer text
+            <div class="footertext">
+                <a href="linkedin.com/in/hartleyblakey">LinkedIn</a>
+                <a href="github.com/hartleyblakey">GitHub</a>
+                <a href="mailto:hartleyblakey@gmail.com">hartleyblakey@gmail.com</a>
+                <p>@ 2025 Hartley Blakey</p>
+            </div>
+            <img src="/lifestarstransparent.png" class="footerimg">
+
         </div>
+
     </div>
 </body>
 
